@@ -1,0 +1,36 @@
+{
+    "name":"微服务的名称",
+    "apis":[
+        {
+            "name" : "接口名称" ,
+            "summary": "" ,
+            "remark": [
+                "对于接口的描述"
+            ],
+            "isFunctionPoint" : false,
+            "url" : "接口的url",
+            "type" : "请求的类型",
+            "requireRole" : [ "请求的权限" ],
+            "req": {
+                
+            },
+            "res": {
+                "响应码类型1":{
+                    "type": "array", "required": true, "desc":"", "itemType": "object",
+                    "itemProperties":{
+                        "响应参数名称" : { "type": "响应参数类型", "required": "是否必传", "desc": "对参数的描述" }
+                    }
+                },
+
+
+
+                "响应码类型2": { 
+                    "type": "object", "required": true, "desc": "",
+                    "itemField":{
+                        "响应参数名称" : { "type": "响应参数类型", "required": "是否必传", "desc": "对参数的描述" }
+                    }
+                }
+            }
+        }
+    ]
+}

@@ -1,0 +1,120 @@
+{
+    "dbName": "library",
+    "dbUser": "lxy",
+    "dbPwd" : "lxy10298",
+    "tables":[
+        {
+            "tableName": "示例表明", "tableDesc": "表的介紹", "group": "表所属于的服务", 
+                "fields": [
+                    { "name": "字段名", "type": "字段类型", "dblength": "字段长度", "dftValue": "默认值", "summary": "字段介绍()", "remark": "对字段的说明" , "isPrimary": "是否主键" },
+                    { "name": "字段名", "type": "字段类型", "dblength": "字段长度", "dftValue": "默认值", "summary": "字段介绍()", "remark": "对字段的说明" , "isPrimary": "是否主键" },
+                    { "name": "字段名", "type": "字段类型", "dblength": "字段长度", "dftValue": "默认值", "summary": "字段介绍()", "remark": "对字段的说明" , "isPrimary": "是否主键" } 
+                ]
+        },
+        {
+            "tableName":"account_info" , "tableDesc": "账号基本信息表,管理账号权限以及信息", "group":"account_service",
+                "fields" : [
+                    { "name": "account_id", "type": "text", "dblength": "32", "dftValue": "''", "summary": "账号ID", "remark": "" , "isPrimary": true },
+                    { "name": "account", "type": "text", "dblength": "50", "dftValue": "''", "summary": "账号名称", "remark": "" , "isPrimary": false },
+                    { "name": "password", "type": "text", "dblength": "32", "dftValue": "''", "summary": "账号密码", "remark": "" , "isPrimary": false },
+                    { "name": "create_time", "type": "timestamp", "dblength": "0", "dftValue": "now()", "summary": "创建时间", "remark": "" , "isPrimary": false },
+                    { "name": "last_login_time", "type": "timestamp", "dblength": "0", "dftValue": "now", "summary": "最后登录时间", "remark": "" , "isPrimary": false },
+                    { "name": "state", "type": "text", "dblength": "20", "dftValue": "enable", "summary": "账号状态", "remark": "enable可用/disable不可用" , "isPrimary": false },
+                    { "name": "permissions", "type": "text", "dblength": "20", "dftValue": "''", "summary": "账号权限", "remark": "10:站长(管理所有用户)/20:书城后台管理员/30:论坛后台管理员/40:普通用户" , "isPrimary": false }
+                ]
+        },
+        {
+            "tableName":"account_detail" , "tableDesc": "账号数据表,管理账号基本信息", "group":"account_service", "remark": "关联账号信息表，一条账号信息对应一个账号数据",
+                "fields" : [
+                    { "name": "ad_id", "type": "text", "dblength": "32", "dftValue": "''", "summary": "账号数据ID", "remark": "" , "isPrimary": true },
+                    { "name": "account_id", "type": "text", "dblength": "32", "dftValue": "''", "summary": "账号ID", "remark": "" , "isPrimary": false },
+                    { "name": "name", "type": "text", "dblength": "50", "dftValue": "''", "summary": "账号名称", "remark": "" , "isPrimary": false },
+                    { "name": "img_url", "type": "text", "dblength": "200", "dftValue": "''", "summary": "账号头像url地址", "remark": "" , "isPrimary": false },
+                    { "name": "phone", "type": "text", "dblength": "20", "dftValue": "''", "summary": "账号手机号,用于联系账号", "remark": "一般来说是十一位" , "isPrimary": false },
+                    { "name": "qq", "type": "text", "dblength": "20", "dftValue": "''", "summary": "账号qq号", "remark": "" , "isPrimary": false },
+                    { "name": "vx", "type": "text", "dblength": "20", "dftValue": "''", "summary": "账号vx号", "remark": "" , "isPrimary": false },
+                    { "name": "email", "type": "text", "dblength": "32", "dftValue": "''", "summary": "账号邮箱", "remark": "在填写的时候需要进行正则匹配，如果不符合规则返回错误" , "isPrimary": false },
+                    { "name": "sex", "type": "string", "dblength": "1", "dftValue": "0", "summary": "用户性别", "remark": "0未填写/1男/2女" , "isPrimary": false },
+                    { "name": "description", "type": "text", "dblength": "200", "dftValue": "''", "summary": "用户描述", "remark": "" , "isPrimary": false }
+                ]
+        }, 
+        {
+            "tableName":"account_addr" , "tableDesc": "账号地址", "group":"account_service", 
+                "fields" : [
+                    { "name": "addr_id", "type": "text", "dblength": "32", "dftValue": "''", "summary": "账号地址ID", "remark": "" , "isPrimary": true },
+                    { "name": "account_id", "type": "text", "dblength": "32", "dftValue": "''", "summary": "账号ID", "remark": "" , "isPrimary": false },
+                    { "name": "phone", "type": "text", "dblength": "20", "dftValue": "''", "summary": "账号联系方式，用于收货", "remark": "" , "isPrimary": false },
+                    { "name": "receiver", "type": "text", "dblength": "50", "dftValue": "''", "summary": "收货人", "remark": "", "isPrimary": false } ,
+                    { "name": "create_time", "type": "timestamp", "dblength": "0", "dftValue": "now()", "summary": "", "remark": "", "isPrimary": false },
+                    { "name": "province_id", "type": "text", "dblength": "32", "dftValue": "''", "summary": "省id", "remark": "" , "isPrimary": false } ,
+                    { "name": "city_id", "type": "text", "dblength": "32", "dftValue": "''", "summary": "市id", "remark": "", "isPrimary": false } ,
+                    { "name": "area_id", "type": "text", "dblength": "32", "dftValue": "''", "summary": "区/县/ id", "remark": "", "isPrimary": false } ,
+                    { "name": "town_id", "type": "text", "dblength": "32", "dftValue": "''", "summary": "镇/街道 id", "remark": "", "isPrimary": false } ,
+                    { "name": "detail", "type": "text", "dblength": "200", "dftValue": "''", "summary": "详细地址", "remark": "对省市区镇的补充", "isPrimary": false }
+                ]
+        },
+        {
+            "tableName": "notify_message", "tableDesc": "通知消息", "group": "account_service", 
+            "fields": [
+                { "name": "nm_id", "type": "text", "dblength": "32", "dftValue": "''", "summary": "", "remark": "" , "isPrimary": true } ,
+                { "name": "title", "type": "text", "dblength": "50", "dftValue": "''", "summary": "消息标题", "remark": "" , "isPrimary": false } ,
+                { "name": "content", "type": "text", "dblength": "500", "dftValue": "''", "summary": "消息内容", "remark": "", "isPrimary": false }  ,
+                { "name": "permissions", "type": "text", "dblength": "32", "dftValue": "''", "summary": "接受消息的权限(批量发送)", "remark": "", "isPrimary": false } ,
+                { "name": "recv_account_id", "type": "text", "dblength": "32", "dftValue": "''", "summary": "接受消息的账户id", "remark": "", "isPrimary": false } ,
+                { "name": "from_account_id", "type": "text", "dblength": "32", "dftValue": "''", "summary": "发送消息的账户id", "remark": "", "isPrimary": false } ,
+                { "name": "create_time", "type": "timestamp", "dblength": "0", "dftValue": "now()", "summary": "创建时间", "remark": "", "isPrimary": false } ,
+                { "name": "odr_idx", "type": "int", "dblength": "0", "dftValue": "", "summary": "排序值", "remark": "大的在前", "isPrimary": false }  ,
+                { "name": "state", "type": "text", "dblength": "30", "dftValue": "'enable'", "summary": "状态", "remark": "enable / disable", "isPrimary": false } 
+            ]
+        },
+        {
+            "tableName": "notify_message_read", "tableDesc": "消息阅读记录", "group": "account_service", 
+            "fields": [
+                { "name": "id", "type": "text", "dblength": "32", "dftValue": "''", "summary": "", "remark": "" , "isPrimary": true } ,
+                { "name": "account_id", "type": "text", "dblength": "32", "dftValue": "''", "summary": "", "remark": "" , "isPrimary": false } ,
+                { "name": "nm_id", "type": "text", "dblength": "32", "dftValue": "''", "summary": "消息id", "remark": "", "isPrimary": false } ,
+                { "name": "create_time", "type": "timestamp", "dblength": "0", "dftValue": "now()", "summary": "创建时间", "remark": "", "isPrimary": false } 
+            ]
+        },
+
+
+
+
+
+        {
+            "tableName": "book_info", "tableDesc": "书籍信息", "group": "book_service", 
+            "fields": [
+                { "name": "book_id", "type": "text", "dblength": "32", "dftValue": "''", "summary": "书籍ID", "remark": "" , "isPrimary": true } ,
+                { "name": "category_id", "type": "text", "dblength": "32", "dftValue": "''", "summary": "书籍分类ID", "remark": "" , "isPrimary": false } ,
+                { "name": "title", "type": "text", "dblength": "50", "dftValue": "''", "summary": "书籍名称", "remark": "", "isPrimary": false } ,
+                { "name": "author", "type": "text[]", "dblength": "50", "dftValue": "{}", "summary": "书籍作者(可能有多个)", "remark": "", "isPrimary": false },
+                { "name": "translator", "type": "text", "dblength": "50", "dftValue": "''", "summary": "编者/译者", "remark": "", "isPrimary": false } ,
+                { "name": "description", "type": "text", "dblength": "2000", "dftValue": "''", "summary": "书籍描述", "remark": "" , "isPrimary": false },
+                { "name": "book_url", "type": "text", "dblength": "200", "dftValue": "''", "summary": "书籍url", "remark": "", "isPrimary": false },
+                { "name": "press_name", "type": "text", "dblength": "50", "dftValue": "''", "summary": "出版社名称", "remark": "", "isPrimary": false },
+                { "name": "publish_date", "type": "timestamp", "dblength": "0", "dftValue": "''", "summary": "出版日期", "remark": "", "isPrimary": false },
+                { "name": "create_time", "type": "timestamp", "dblength": "0", "dftValue": "now()", "summary": "创建时间", "remark": "", "isPrimary": false } ,
+                { "name": "book_state", "type": "text", "dblength": "20", "dftValue": "''", "summary": "书籍状态", "remark": "review 待审核/enable 已上架/disable 已下架", "isPrimary": false }
+            ]
+        },
+        {
+            "tableName": "book_sku", "tableDesc": "书籍的sku信息", "group": "book_service", 
+            "fields": [
+                { "name": "book_sku_id", "type": "text", "dblength": "32", "dftValue": "''", "summary": "书籍分类ID", "remark": "" , "isPrimary": true },
+                { "name": "book_id", "type": "text", "dblength": "32", "dftValue": "''", "summary": "书籍ID", "remark": "" , "isPrimary": false },
+                { "name": "price", "type": "decimal", "dblength": "8,2", "dftValue": "0", "summary": "价格", "remark": "", "isPrimary": false } ,
+                { "name": "discount", "type": "int", "dblength": "0", "dftValue": "100", "summary": "折扣", "remark": "这里是折扣分子部分，不能大于100，对用户的价格 = 定价 * (折扣 / 100)，", "isPrimary": false } ,
+                { "name": "stock", "type": "int", "dblength": "20", "dftValue": "0", "summary": "库存", "remark": "", "isPrimary": false } ,
+                { "name": "sales_volume", "type": "int", "dblength": "20", "dftValue": "0", "summary": "销量", "remark": "", "isPrimary": false } 
+            ]
+        },
+        {
+            "tableName": "book_type", "tableDesc": "书籍分类", "group": "book_service", 
+            "fields": [
+                { "name": "category_id", "type": "text", "dblength": "32", "dftValue": "''", "summary": "书籍分类ID", "remark": "" , "isPrimary": true },
+                { "name": "category_name", "type": "text", "dblength": "50", "dftValue": "''", "summary": "分类名称", "remark": "" , "isPrimary": false },
+                { "name": "parent_id", "type": "text", "dblength": "32", "dftValue": "''", "summary": "父级分类ID", "remark": "" , "isPrimary": false }
+            ]
+        }
+    ]
+}
